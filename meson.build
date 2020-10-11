@@ -8,7 +8,7 @@ c_args        = []
 link_args     = []
 external_deps = []
 rom_address = '0x8000000'
-gcc_tools_base = '/home/tobi/Downloads/gcc-arm-none-eabi-9-2019-q4-major-x86_64-linux/gcc-arm-none-eabi-9-2019-q4-major/bin/arm-none-eabi-'
+gcc_tools_base = 'arm-none-eabi-'
 
 # enable a lot of warnings
 c_args += [
@@ -182,10 +182,10 @@ if target_machine.cpu() != 'x86_64'
     ],
     depends:firmware
   )
-  
+
 else # target machine is x86_64
 
-  firmware_bin = custom_target(
+  firmware_bin = run_target(
     'bin',
     command : [
       'bash',
@@ -194,7 +194,7 @@ else # target machine is x86_64
     ]
   )
 
-  firmware_size = custom_target(
+  firmware_size = run_target(
     'size',
     command : [
       'bash',
@@ -204,7 +204,7 @@ else # target machine is x86_64
   )
 
 
-  firmware_dump = custom_target(
+  firmware_dump = run_target(
     'dis',
     command : [
       'bash',

@@ -1,6 +1,6 @@
 project('libopencm3_stm32f4 dep', 'c')
 
-r = run_command('make', env: {'PREFIX': '/home/tobi/Downloads/gcc-arm-none-eabi-9-2019-q4-major-x86_64-linux/gcc-arm-none-eabi-9-2019-q4-major/bin/arm-none-eabi-'}, check: false)
+r = run_command('make', env: {'PREFIX': 'arm-none-eabi-'}, check: false)
 
 message(r.stderr())
 
