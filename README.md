@@ -70,3 +70,11 @@ I have decided to disable LTO because of this:
 https://interrupt.memfault.com/blog/best-and-worst-gcc-clang-compiler-flags
 
 Might need to enable it if i run into performance issues
+
+## Links to used Tools
+* cppcheck: https://github.com/danmar/cppcheck
+* puncover https://github.com/HBehrens/puncover
+* bloaty https://github.com/google/bloaty
+* Unity https://github.com/ThrowTheSwitch/Unity
+* Lcov https://github.com/linux-test-project/lcov
+* st-flash: https://github.com/stlink-org/stlink
