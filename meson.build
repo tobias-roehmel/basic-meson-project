@@ -7,6 +7,8 @@ incdirs       = []
 c_args        = []
 link_args     = []
 external_deps = []
+# this holds test targets of subfolders so we can execute all tests at once
+test_targets  = []
 rom_address = '0x8000000'
 
 # import binary objects
@@ -182,6 +184,16 @@ if target_machine.cpu() != 'x86_64'
   )
 
 else # target machine is x86_64
+
+  all_tests = run_target(
+    'all_tests',
+    command : [
+      'bash',
+      '-c',
+      'echo '
+    ],
+    depends:test_targets
+  )
 
   firmware_bin = run_target(
     'bin',
