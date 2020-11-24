@@ -1,5 +1,8 @@
 # Meson Project
-
+You need meson version 0.56 because I use the substring function. Install with pip:
+~~~
+pip3 install -Iv meson==0.56
+~~~
 ## Folder structure
 - linker_script
 - scripts (helper scripts)
