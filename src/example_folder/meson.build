@@ -35,11 +35,6 @@ if target_machine.cpu() == 'x86_64'
                 depends :  example_folder_test_firmware
         )
 
-        # the old ways without run_tests dependency
-        # run the test binary which generates logs on the standard out
-        # run_target('example_folder_tests', command : ['@0@/example_folder_test_runner.elf'.format(meson.current_build_dir())],
-        #                                    depends :  example_folder_test_firmware)
-
 
         # generate website with coverage information by using scripts/coverage_report.sh
         # the test binary needs to be executed to generate gcda files

@@ -1,3 +1,4 @@
 subprojects/unity
 subprojects/libopencm3
 build
+test_build
