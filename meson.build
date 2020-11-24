@@ -8,7 +8,13 @@ c_args        = []
 link_args     = []
 external_deps = []
 rom_address = '0x8000000'
-gcc_tools_base = 'arm-none-eabi-'
+
+# import binary objects
+objcopy  = '@0@'.format(find_program('objcopy').path())
+objdump  = '@0@'.format(find_program('objdump').path())
+size     = '@0@'.format(find_program('size').path())
+gdb     = '@0@'.format(find_program('gdb').path())
+gcc_tools_base = objdump.substring(0, -7)
 
 # enable a lot of warnings
 c_args += [
@@ -97,14 +103,6 @@ firmware = executable(
             dependencies        : [external_deps],
             include_directories : [incdirs],
             build_by_default: false )
-
-
-# import binary objects
-objcopy  = '@0@'.format(find_program('objcopy').path())
-objdump  = '@0@'.format(find_program('objdump').path())
-size     = '@0@'.format(find_program('size').path())
-gdb     = '@0@'.format(find_program('gdb').path())
-
 
 
 # these commands should only be executed when compiling for the embedded target
